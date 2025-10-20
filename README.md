@@ -105,10 +105,10 @@ print('AUC:', roc_auc_score(y_test, y_proba))
 
 ## 📈 Power BI Dashboard
 Power BI visualizes actionable insights:
-- Customer Segmentation
-- Financial Impact
-- Predictive Analysis
-- Geo Analysis
+- **Customer Segmentation:** Churn rate by contract type, gender, and internet service.
+- **Financial Impact:** Estimated revenue loss from churned customers.
+- **Predictive Analysis:** Integration with model results (Python output).
+- **Geo Analysis:** Regional churn distribution (if geo data available).
 
 ---
 
