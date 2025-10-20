@@ -92,7 +92,8 @@ model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
 ```
-5️⃣ **Model Evaluation** 
+5️⃣ **Model Evaluation** <br /> 
+Use precision, recall, F1-score, and AUC-ROC to assess performance:
 ```bash
 from sklearn.metrics import classification_report, roc_auc_score
 print(classification_report(y_test, y_pred))
