@@ -1,173 +1,162 @@
 # 📘 Predicting Customer Churn in Telecommunications
 
-## 🧠 Overview
+## 🧠 Project Overview
+Customer churn — when subscribers discontinue their services — is one of the most critical challenges for telecom companies.  
+This project applies **data analytics**, **machine learning**, and **business intelligence (BI)** to predict churn probability, uncover the key drivers behind it, and support **retention-focused decision-making**.
 
-This project applies data analytics and machine learning to predict
-customer churn in a telecommunications company. By identifying customers
-likely to leave, the business can proactively target retention efforts
-and improve long-term profitability.
+By predicting which customers are at risk, telecom operators can reduce churn, increase customer lifetime value (CLV), and optimize marketing campaigns.
 
-------------------------------------------------------------------------
+---
 
-## 🎯 Objectives
+## 🎯 Business Objectives
+1. Identify customers likely to leave the service.
+2. Understand which features and behaviors influence churn (e.g., tenure, contract type, payment method).
+3. Design data-driven retention campaigns targeting high-risk customers.
+4. Build predictive models to automate churn detection.
+5. Deliver insights through a **Power BI dashboard** and **Python-based reports** for ongoing monitoring.
 
--   Analyze customer behavior and churn patterns.
--   Build a predictive model to classify customers at risk of leaving.
--   Provide actionable insights through Power BI and Python dashboards.
--   Help marketing and retention teams reduce churn rate.
+---
 
-------------------------------------------------------------------------
+## 🧩 Data Source
+**Dataset:** [Telco Customer Churn (Kaggle)](https://www.kaggle.com/blastchar/telco-customer-churn)
 
-## 📊 Dataset
+This dataset contains demographic, service usage, and billing details for telecom customers.
 
-**Source:** [Telco Customer Churn Dataset
-(Kaggle)](https://www.kaggle.com/blastchar/telco-customer-churn)
+| Feature | Description | Example |
+|----------|-------------|----------|
+| `customerID` | Unique customer identifier | 7590-VHVEG |
+| `gender` | Male or Female | Male |
+| `SeniorCitizen` | 1 if senior, 0 otherwise | 0 |
+| `Partner` | Yes/No | Yes |
+| `Dependents` | Yes/No | No |
+| `tenure` | Number of months as customer | 34 |
+| `PhoneService` | Yes/No | Yes |
+| `MultipleLines` | Yes/No/No phone service | No |
+| `InternetService` | DSL/Fiber optic/None | Fiber optic |
+| `OnlineSecurity` | Yes/No/No internet service | No |
+| `TechSupport` | Yes/No/No internet service | No |
+| `Contract` | Month-to-month/One year/Two year | Month-to-month |
+| `PaymentMethod` | Payment method type | Electronic check |
+| `MonthlyCharges` | Monthly bill amount | 70.35 |
+| `TotalCharges` | Total amount billed | 1397.47 |
+| `Churn` | Target variable (Yes/No) | Yes |
 
-  Feature           Description
-  ----------------- ----------------------------------------------------
-  customerID        Unique ID for each customer
-  gender            Male or Female
-  SeniorCitizen     Whether the customer is a senior citizen
-  Partner           Whether the customer has a partner
-  Dependents        Whether the customer has dependents
-  tenure            Number of months the customer has stayed
-  PhoneService      Whether the customer has phone service
-  MultipleLines     Whether the customer has multiple lines
-  InternetService   Type of internet service
-  OnlineSecurity    Whether online security is included
-  TechSupport       Whether tech support is included
-  Contract          Contract type (Month-to-month, One year, Two year)
-  PaymentMethod     Payment method used by the customer
-  MonthlyCharges    Monthly amount charged
-  TotalCharges      Total amount charged
-  Churn             Target variable (Yes/No)
+---
 
-------------------------------------------------------------------------
+## ⚙️ Tech Stack
+| Category | Tools / Libraries |
+|-----------|------------------|
+| **Data Processing** | Pandas, NumPy, Power Query |
+| **Exploratory Analysis** | Matplotlib, Seaborn |
+| **Machine Learning** | Scikit-learn, XGBoost, RandomForest |
+| **Model Deployment** | Streamlit |
+| **Dashboarding** | Power BI |
+| **Version Control** | Git, GitHub |
 
-## ⚙️ Project Structure
+---
 
-    Predicting-Customer-Churn/
-    │
-    ├── data/
-    │   └── telco_churn.csv
-    │
-    ├── notebooks/
-    │   └── exploratory_analysis.ipynb
-    │
-    ├── scripts/
-    │   ├── load_data.py
-    │   ├── clean_data.py
-    │   ├── feature_engineering.py
-    │   ├── train_model.py
-    │   ├── evaluate_model.py
-    │   └── app.py
-    │
-    ├── models/
-    │   └── churn_model.pkl
-    │
-    ├── requirements.txt
-    ├── README.md
-    └── PowerBI_Dashboard.pbix
+## 🧠 Data Workflow
+1️⃣ **Data Extraction & Loading**  
 
-------------------------------------------------------------------------
-
-## 🧩 Workflow
-
-### 1. Data Collection
-
-``` python
+```bash
+import pandas as pd
 df = pd.read_csv('data/telco_churn.csv')
 ```
-
-### 2. Data Cleaning & Transformation
-
-``` python
+2️⃣ **Data Cleaning**  
+```bash
 df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
-df = df.dropna()
+df.dropna(inplace=True)
 ```
+3️⃣ **Feature Engineering**  
+```bash
 
-### 3. Feature Engineering
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
--   Encode categorical variables.
--   Create tenure buckets.
--   Standardize numerical features.
-
-### 4. Model Training
-
-``` python
+```
+4️⃣ **Model Development** 
+```bash
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
+
 ```
-
-### 5. Model Evaluation
-
-``` python
-from sklearn.metrics import classification_report, confusion_matrix
+5️⃣ **Model Evaluation** 
+```bash
+from sklearn.metrics import classification_report, roc_auc_score
 print(classification_report(y_test, y_pred))
+print('AUC:', roc_auc_score(y_test, y_proba))
+
 ```
 
-### 6. Deployment
-
-``` bash
-streamlit run app.py
-```
-
-------------------------------------------------------------------------
+---
 
 ## 📈 Power BI Dashboard
+Power BI visualizes actionable insights:
+- Customer Segmentation
+- Financial Impact
+- Predictive Analysis
+- Geo Analysis
 
-The Power BI dashboard includes: - **Customer Churn Overview:** Overall
-churn rate and customer segments. - **Demographic Analysis:** Churn by
-gender, age, contract type. - **Revenue Impact:** Lost revenue due to
-churn. - **Predictive Model Output:** Churn probability distribution.
+---
 
-------------------------------------------------------------------------
+## 🚀 Deployment
+### Local Streamlit App:
+```bash
+streamlit run scripts/app.py
+```
+### Power BI Integration:
+1. Export churn predictions from Python.
+2. Load into Power BI as a data source.
+3. Build visuals using DAX & Power Query.
 
-## 🚀 Reproducibility
+---
 
-**Setup environment:**
-
-``` bash
+## 🔁 Reproducibility
+### Setup:
+```bash
 git clone https://github.com/yourusername/predict-customer-churn.git
 cd predict-customer-churn
 pip install -r requirements.txt
 ```
-
-**Run training:**
-
-``` bash
+### Train Model:
+```bash
 python scripts/train_model.py
 ```
-
-**Run app:**
-
-``` bash
+### Launch Dashboard:
+```bash
 streamlit run scripts/app.py
 ```
 
-------------------------------------------------------------------------
+---
 
-## 📦 Requirements
+## 📊 Model Insights
+| Feature | Importance |
+|----------|-------------|
+| Contract Type | 0.28 |
+| Tenure | 0.23 |
+| MonthlyCharges | 0.17 |
+| Payment Method | 0.12 |
+| Internet Service | 0.10 |
+| Tech Support | 0.07 |
 
-    pandas
-    numpy
-    scikit-learn
-    matplotlib
-    seaborn
-    streamlit
+---
 
-------------------------------------------------------------------------
+## 🧠 Business Recommendations
+- Offer **discounted annual contracts**.
+- Improve customer service for fiber users.
+- Target **senior citizens** with simplified billing.
+- Launch **loyalty rewards programs**.
+
+---
 
 ## 📜 License
+This project is licensed under the **MIT License**.
 
-MIT License
-
-------------------------------------------------------------------------
+---
 
 ## 👨‍💻 Author
-
-**Bahre Hailemariam**\
-*Data Analyst \| BI Developer*\
-📧 your.email@example.com\
-🌐 your-portfolio-link.com
+**Bahre Hailemariam**  
+_Data Analyst | BI Developer_  
+📧 your.email@example.com  
+🌐 [your-portfolio-link.com](#)  
+💼 [LinkedIn Profile](#)
