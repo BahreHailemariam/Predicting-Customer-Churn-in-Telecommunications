@@ -57,12 +57,15 @@ This dataset contains demographic, service usage, and billing details for teleco
 
 ## 🧠 Data Workflow
 1️⃣ **Data Extraction & Loading**  
-
+Data is imported from CSV or SQL database:
 ```bash
 import pandas as pd
 df = pd.read_csv('data/telco_churn.csv')
 ```
-2️⃣ **Data Cleaning**  
+2️⃣ **Data Cleaning** 
+- Remove missing and invalid entries.
+- Convert `TotalCharges` to numeric type.
+- Handle whitespace or string inconsistencies.
 ```bash
 df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
 df.dropna(inplace=True)
