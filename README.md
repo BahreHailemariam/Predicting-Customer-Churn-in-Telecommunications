@@ -141,6 +141,31 @@ streamlit run scripts/app.py
 ```
 
 ---
+## 🧩 Directory Structure
+```bash
+Predicting-Customer-Churn/
+│
+├── data/
+│   └── telco_churn.csv
+│
+├── notebooks/
+│   └── exploratory_analysis.ipynb
+│
+├── scripts/
+│   ├── load_data.py
+│   ├── clean_data.py
+│   ├── feature_engineering.py
+│   ├── train_model.py
+│   ├── evaluate_model.py
+│   └── app.py
+│
+├── models/
+│   └── churn_model.pkl
+│
+├── PowerBI_Dashboard.pbix
+├── requirements.txt
+└── README.md
+```
 
 ## 📊 Model Insights
 | Feature | Importance |
