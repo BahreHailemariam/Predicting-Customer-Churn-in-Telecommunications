@@ -71,6 +71,9 @@ df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
 df.dropna(inplace=True)
 ```
 3️⃣ **Feature Engineering**  
+- Create tenure bins: short-term, medium-term, long-term.
+- Encode categorical variables with `OneHotEncoder`.
+- Scale numerical variables with `StandardScaler`.
 ```bash
 
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
