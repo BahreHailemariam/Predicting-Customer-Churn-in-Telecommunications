@@ -79,7 +79,13 @@ df.dropna(inplace=True)
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 ```
-4️⃣ **Model Development** 
+4️⃣ **Model Development** <br /> 
+Test and compare multiple algorithms: <br /> 
+- Logistic Regression
+- Random Forest
+- XGBoost
+- Support Vector Machine<br /> 
+Example:
 ```bash
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(random_state=42)
