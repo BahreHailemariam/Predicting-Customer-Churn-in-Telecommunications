@@ -195,6 +195,7 @@ This project is licensed under the **MIT License**.
 ## 👨‍💻 Author
 **Bahre Hailemariam**  
 _Data Analyst | BI Developer_  
-📧 your.email@example.com  
-🌐 [your-portfolio-link.com](#)  
-💼 [LinkedIn Profile](#)
+📩 bahre.hail@gmail.com <br /> 
+🌐 [Portfolio](https://bahre-hailemariam-data-analyst.crd.co/)<br /> 
+💼 [LinkedIn](https://www.linkedin.com/in/bahre-hailemariam/) <br /> 
+📊[GitHub](https://github.com/BahreHailemariam)
